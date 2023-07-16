@@ -1,4 +1,4 @@
-package com.example.slash
+package tech.benyamin.slash
 
 import io.flutter.embedding.android.FlutterActivity
 
