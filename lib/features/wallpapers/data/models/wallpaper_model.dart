@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:slash/features/wallpapers/data/models/thumbs_model.dart';
 
-class WallpaperModel {
+class WallpaperModel extends Equatable {
   final String id;
   final String url;
   final String shortUrl;
@@ -82,4 +83,7 @@ class WallpaperModel {
         "path": path,
         "thumbs": thumbs.toJson(),
       };
+
+  @override
+  List<Object?> get props => [id];
 }

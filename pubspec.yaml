@@ -17,6 +17,9 @@ dependencies:
   auto_route: ^7.7.0
   url_strategy: ^0.2.0
   dartz: ^0.10.1
+  equatable: ^2.0.5
+  stream_transform: ^2.1.0
+  bloc_concurrency: ^0.2.2
 
 dependency_overrides:
   meta: ^1.9.1

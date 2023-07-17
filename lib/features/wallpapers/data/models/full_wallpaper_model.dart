@@ -1,8 +1,9 @@
 import 'tag_model.dart';
 import 'thumbs_model.dart';
 import 'uploader_model.dart';
+import 'package:equatable/equatable.dart';
 
-class FullWallpaperModel {
+class FullWallpaperModel extends Equatable {
   final String id;
   final String url;
   final String shortUrl;
@@ -94,4 +95,7 @@ class FullWallpaperModel {
         "thumbs": thumbs.toJson(),
         "tags": List<Map<String, dynamic>>.from(tags.map((x) => x.toJson())),
       };
+
+  @override
+  List<Object> get props => [id];
 }
