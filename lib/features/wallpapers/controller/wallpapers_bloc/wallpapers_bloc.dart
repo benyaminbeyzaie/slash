@@ -9,7 +9,7 @@ import '../../data/repository/wallpaper_repository_interface.dart';
 part 'wallpapers_event.dart';
 part 'wallpapers_state.dart';
 
-const throttleDuration = Duration(milliseconds: 200);
+const throttleDuration = Duration(milliseconds: 100);
 
 EventTransformer<E> throttleDroppable<E>(Duration duration) {
   return (events, mapper) {
@@ -23,14 +23,14 @@ class WallpapersBloc extends Bloc<WallpapersEvent, WallpapersState> {
   WallpapersBloc({
     required this.repository,
   }) : super(const WallpapersState()) {
-    on<FetchWallpapers>(
+    on<FetchNextWallpapers>(
       _onFetchWallpapers,
       transformer: throttleDroppable(throttleDuration),
     );
   }
 
   Future<void> _onFetchWallpapers(
-    FetchWallpapers event,
+    FetchNextWallpapers event,
     Emitter<WallpapersState> emit,
   ) async {
     if (state.hasReachedMax) return;
@@ -57,7 +57,7 @@ class WallpapersBloc extends Bloc<WallpapersEvent, WallpapersState> {
 
       return;
     }
-    final ans = await repository.fetchWallpapers(event.page + 1);
+    final ans = await repository.fetchWallpapers(state.page + 1);
 
     ans.fold(
       (l) => emit(

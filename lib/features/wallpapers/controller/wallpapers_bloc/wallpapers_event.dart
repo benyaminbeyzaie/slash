@@ -5,8 +5,6 @@ abstract class WallpapersEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchWallpapers extends WallpapersEvent {
-  final int page;
-
-  FetchWallpapers({required this.page});
+class FetchNextWallpapers extends WallpapersEvent {
+  FetchNextWallpapers();
 }
