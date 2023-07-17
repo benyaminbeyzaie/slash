@@ -8,7 +8,7 @@ import '../models/full_wallpaper_model.dart';
 import '../models/wallpaper_model.dart';
 
 Future<Either<Failure, List<WallpaperModel>>> getWallpapers(int page) async {
-  Future<List<WallpaperModel>> wallpapersFetch() async {
+  Future<List<WallpaperModel>> fetch() async {
     final ans = await sl<Dio>().get('/v1/search', queryParameters: {
       "page": page,
     });
@@ -19,14 +19,16 @@ Future<Either<Failure, List<WallpaperModel>>> getWallpapers(int page) async {
       ),
     );
 
+    print(wallpapers);
+
     return wallpapers;
   }
 
-  return fetcher<List<WallpaperModel>>(() => wallpapersFetch());
+  return fetcher<List<WallpaperModel>>(() => fetch());
 }
 
 Future<Either<Failure, FullWallpaperModel>> getFullWallpaper(String id) async {
-  Future<FullWallpaperModel> wallpaperFetch() async {
+  Future<FullWallpaperModel> fetch() async {
     final ans = await sl<Dio>().get('/v1/w/$id');
 
     final wallpaper = FullWallpaperModel.fromJson(ans.data['data']);
@@ -34,5 +36,5 @@ Future<Either<Failure, FullWallpaperModel>> getFullWallpaper(String id) async {
     return wallpaper;
   }
 
-  return fetcher<FullWallpaperModel>(() => wallpaperFetch());
+  return fetcher<FullWallpaperModel>(() => fetch());
 }
