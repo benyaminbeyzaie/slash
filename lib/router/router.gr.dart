@@ -9,8 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:slash/features/wallpapers/single-wallpaper/single_wallpaper_page.dart' as _i2;
-import 'package:slash/features/wallpapers/wallpapers_page.dart' as _i1;
+import 'package:slash/features/wallpapers/view/single_wallpaper_page.dart' as _i2;
+import 'package:slash/features/wallpapers/view/wallpapers_page.dart' as _i1;
 
 abstract class $AppRouter extends _i3.RootStackRouter {
   $AppRouter({super.navigatorKey});

@@ -16,6 +16,7 @@ dependencies:
   dio: ^5.2.1+1
   auto_route: ^7.7.0
   url_strategy: ^0.2.0
+  dartz: ^0.10.1
 
 dependency_overrides:
   meta: ^1.9.1
