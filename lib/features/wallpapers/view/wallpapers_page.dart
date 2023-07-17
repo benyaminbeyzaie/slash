@@ -33,6 +33,9 @@ class _WallpapersPageState extends State<WallpapersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("/ slash"),
+      ),
       body: BlocBuilder<WallpapersBloc, WallpapersState>(
         builder: (context, state) {
           if (state.status == WallpapersStateStatus.initial) {
