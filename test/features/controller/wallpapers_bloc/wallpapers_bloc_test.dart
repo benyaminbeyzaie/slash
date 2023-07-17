@@ -9,7 +9,7 @@ import '../../data/models/mock_wallpaper_model.dart';
 import '../../data/repository/mock_wallpaper_repository.dart';
 
 void main() {
-  group('CounterBloc', () {
+  group('WallpapersBloc', () {
     final mockRepository = MockWallpaperRepository();
     late WallpapersBloc wallpapersBloc;
 
