@@ -4,7 +4,7 @@ class WallpapersState extends Equatable {
   final WallpapersStateStatus status;
   final List<WallpaperModel> wallpapers;
   final bool hasReachedMax;
-  final String message;
+  final String? message;
   final int page;
 
   const WallpapersState({
@@ -26,7 +26,7 @@ class WallpapersState extends Equatable {
       status: status ?? this.status,
       wallpapers: wallpapers ?? this.wallpapers,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
-      message: message ?? this.message,
+      message: message,
       page: page ?? this.page,
     );
   }
@@ -37,7 +37,7 @@ class WallpapersState extends Equatable {
   }
 
   @override
-  List<Object> get props => [status, page, wallpapers, hasReachedMax, message];
+  List<Object> get props => [status, page, wallpapers, hasReachedMax];
 }
 
 enum WallpapersStateStatus { initial, success, failure }

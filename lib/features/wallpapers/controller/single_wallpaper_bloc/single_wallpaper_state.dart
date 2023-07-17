@@ -9,7 +9,7 @@ class SingleWallpaperState extends Equatable {
 
   final FullWallpaperModel? fullWallpaperModel;
   final SingleWallpaperStateStatus status;
-  final String message;
+  final String? message;
 
   SingleWallpaperState copyWith({
     SingleWallpaperStateStatus? status,
@@ -19,12 +19,12 @@ class SingleWallpaperState extends Equatable {
     return SingleWallpaperState(
       status: status ?? this.status,
       fullWallpaperModel: fullWallpaperModel ?? this.fullWallpaperModel,
-      message: message ?? this.message,
+      message: message,
     );
   }
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [status, fullWallpaperModel ?? 0, message ?? 0];
 }
 
 enum SingleWallpaperStateStatus {

@@ -21,7 +21,7 @@ void main() {
       wallpapersBloc.close();
     });
 
-    test('initial state is correct', () {
+    test('Initial state is correct', () {
       expect(wallpapersBloc.state.status, WallpapersStateStatus.initial);
     });
 
