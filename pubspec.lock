@@ -415,7 +415,7 @@ packages:
     source: hosted
     version: "0.6.2"
   flutter_test:
-    dependency: transitive
+    dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -576,14 +576,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-  mockito:
-    dependency: transitive
-    description:
-      name: mockito
-      sha256: "7d5b53bcd556c1bc7ffbe4e4d5a19c3e112b7e925e9e172dd7c6ad0630812616"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.4.2"
   mocktail:
     dependency: "direct main"
     description:
@@ -600,14 +592,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  network_image_mock:
-    dependency: "direct dev"
-    description:
-      name: network_image_mock
-      sha256: "855cdd01d42440e0cffee0d6c2370909fc31b3bcba308a59829f24f64be42db7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   node_preamble:
     dependency: transitive
     description:
