@@ -1,12 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:slash/features/wallpapers/data/models/wallpaper_model.dart';
 import 'package:slash/features/wallpapers/view/widgets/bottom_loader.dart';
-import 'package:slash/features/wallpapers/view/widgets/wallpaper_card.dart';
+import 'package:slash/features/wallpapers/view/widgets/grid_view/base_grid_view.dart';
+import 'package:slash/features/wallpapers/view/widgets/wallpaper_card/wallpaper_card.dart';
 import 'package:slash/injection_container.dart';
+import 'package:slash/widgets/empty_indicator.dart';
+import 'package:slash/widgets/error_indicator.dart';
 
 import '../controller/wallpapers_bloc/wallpapers_bloc.dart';
+import 'widgets/grid_view/grid_view_skeleton.dart';
 
 @RoutePage()
 class WallpapersPage extends StatefulWidget {
@@ -17,10 +21,13 @@ class WallpapersPage extends StatefulWidget {
 }
 
 class _WallpapersPageState extends State<WallpapersPage> {
+  final scrollController = ScrollController();
+
   @override
   void initState() {
-    sl<WallpapersBloc>().add(FetchNextWallpapers());
     super.initState();
+    scrollController.addListener(onScroll);
+    sl<WallpapersBloc>().add(FetchNextWallpapers());
   }
 
   @override
@@ -28,32 +35,65 @@ class _WallpapersPageState extends State<WallpapersPage> {
     return Scaffold(
       body: BlocBuilder<WallpapersBloc, WallpapersState>(
         builder: (context, state) {
-          var wallpapers = state.wallpapers;
+          if (state.status == WallpapersStateStatus.initial) {
+            return const GridViewSkeleton();
+          }
+          final wallpapers = state.wallpapers;
 
-          return MasonryGridView.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            itemCount:
-                state.hasReachedMax ? wallpapers.length : wallpapers.length + 1,
-            itemBuilder: (context, index) {
-              if (index >= wallpapers.length) {
-                return const AspectRatio(
-                  aspectRatio: 2,
-                  child: BottomLoader(),
-                );
-              }
-              final wallpaper = wallpapers[index];
-              final aspectRatio = wallpaper.dimensionY / wallpaper.dimensionX;
+          if (wallpapers.isEmpty) {
+            return const Center(child: EmptyIndicator());
+          }
 
-              return AspectRatio(
-                aspectRatio: aspectRatio,
-                child: const WallpaperCard(),
-              );
-            },
-          );
+          if (state.status == WallpapersStateStatus.failure) {
+            return const Center(child: ErrorIndicator());
+          }
+
+          return buildWallpapers(state.hasReachedMax, wallpapers);
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    scrollController
+      ..removeListener(onScroll)
+      ..dispose();
+    super.dispose();
+  }
+
+  BaseGridView buildWallpapers(
+    bool hasReachedMax,
+    List<WallpaperModel> wallpapers,
+  ) {
+    return BaseGridView(
+      controller: scrollController,
+      itemCount: hasReachedMax ? wallpapers.length : wallpapers.length + 1,
+      itemBuilder: (context, index) {
+        if (index >= wallpapers.length) {
+          return const BottomLoader();
+        }
+        final wallpaper = wallpapers[index];
+        final aspectRatio = wallpaper.dimensionX / wallpaper.dimensionY;
+        final imagePath = wallpaper.path;
+
+        return AspectRatio(
+          aspectRatio: aspectRatio,
+          child: WallpaperCard(imagePath: imagePath),
+        );
+      },
+    );
+  }
+
+  void onScroll() {
+    if (isBottom) context.read<WallpapersBloc>().add(FetchNextWallpapers());
+  }
+
+  bool get isBottom {
+    if (!scrollController.hasClients) return false;
+    final maxScroll = scrollController.position.maxScrollExtent;
+    final currentScroll = scrollController.offset;
+
+    return currentScroll >= (maxScroll * 0.9);
   }
 }
