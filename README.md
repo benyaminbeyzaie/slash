@@ -6,7 +6,7 @@ Slash is a simple wallpaper app.
 
 |           Wallpapers           |      Single Wallpaper       |
 | :----------------------------: | :-------------------------: |
-| ![startup](/Screenshots/1.png) | ![menu](/Screenshots/2.png) |
+| ![Wallpapers](/screenshots/1.png) | ![Single Wallpaper ](/screenshots/2.png) |
 
 ## Decisions, Technologies and Reasons
 
