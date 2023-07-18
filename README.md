@@ -34,6 +34,7 @@ Slash is a simple wallpaper app.
 ## Features
 
 - Get list of wallpapers form api with cached iamges
+- Pagination and infinite list
 - See the each wallpaper in single page with more details
 - Supporting Web (Specially done good work on url handling and navigation)
 - Supporting iOS and Android
