@@ -9,7 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:slash/features/wallpapers/view/single_wallpaper_page.dart' as _i2;
+import 'package:slash/features/wallpapers/view/single_wallpaper_page.dart'
+    as _i2;
 import 'package:slash/features/wallpapers/view/wallpapers_page.dart' as _i1;
 
 abstract class $AppRouter extends _i3.RootStackRouter {
@@ -24,13 +25,13 @@ abstract class $AppRouter extends _i3.RootStackRouter {
       );
     },
     SingleWallpaperRoute.name: (routeData) {
-      final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<SingleWallpaperRouteArgs>(
-          orElse: () => SingleWallpaperRouteArgs(
-              wallpaperId: pathParams.getString('wallpaperId')));
+      final args = routeData.argsAs<SingleWallpaperRouteArgs>();
       return _i3.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.SingleWallpaperPage(wallpaperId: args.wallpaperId),
+        child: _i2.SingleWallpaperPage(
+          wallpaperId: args.wallpaperId,
+          previewImagePath: args.previewImagePath,
+        ),
       );
     },
   };
@@ -55,10 +56,14 @@ class WallpapersRoute extends _i3.PageRouteInfo<void> {
 class SingleWallpaperRoute extends _i3.PageRouteInfo<SingleWallpaperRouteArgs> {
   SingleWallpaperRoute({
     required String wallpaperId,
+    required String previewImagePath,
     List<_i3.PageRouteInfo>? children,
   }) : super(
           SingleWallpaperRoute.name,
-          args: SingleWallpaperRouteArgs(wallpaperId: wallpaperId),
+          args: SingleWallpaperRouteArgs(
+            wallpaperId: wallpaperId,
+            previewImagePath: previewImagePath,
+          ),
           rawPathParams: {'wallpaperId': wallpaperId},
           initialChildren: children,
         );
@@ -70,12 +75,17 @@ class SingleWallpaperRoute extends _i3.PageRouteInfo<SingleWallpaperRouteArgs> {
 }
 
 class SingleWallpaperRouteArgs {
-  const SingleWallpaperRouteArgs({required this.wallpaperId});
+  const SingleWallpaperRouteArgs({
+    required this.wallpaperId,
+    required this.previewImagePath,
+  });
 
   final String wallpaperId;
 
+  final String previewImagePath;
+
   @override
   String toString() {
-    return 'SingleWallpaperRouteArgs{wallpaperId: $wallpaperId}';
+    return 'SingleWallpaperRouteArgs{wallpaperId: $wallpaperId, previewImagePath: $previewImagePath}';
   }
 }

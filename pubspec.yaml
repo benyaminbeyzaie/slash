@@ -26,6 +26,10 @@ dependencies:
   shimmer: ^3.0.0
   golden_toolkit: ^0.15.0
   flutter_cache_manager: ^3.3.1
+  path_provider: ^2.0.15
+  image_gallery_saver: ^2.0.3
+  path: ^1.8.3
+  url_launcher: ^6.1.12
 
 dependency_overrides:
   meta: ^1.9.1

@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 
 import '../../data/repository/mock_wallpaper_repository.dart';
 
+
 void main() {
   group('SingleWallpaperBloc', () {
     final mockRepository = MockWallpaperRepository();
