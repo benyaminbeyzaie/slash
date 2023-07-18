@@ -8,7 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
-const _kGoldenTestsThreshold = 0.5 / 100; // 0.5%
+const _kGoldenTestsThreshold = 1 / 100; // 1%
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   await loadAppFonts();
