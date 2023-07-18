@@ -1,17 +1,13 @@
-import 'package:flutter/services.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:get_it/get_it.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
 import 'package:slash/features/wallpapers/view/widgets/wallpapers_page_content.dart';
 
-import 'utils/transparent_image.dart';
-import 'utils/mock_file.dart';
-import 'utils/test_cache_manager.dart';
+import 'utils/init_mocked_network_image.dart';
 import 'utils/mock_wallpaper_model.dart';
 
 void main() {
+  initMockedNetworkImage();
+
   testGoldens('Wallpapers failure', (tester) async {
     const widget = WallpapersPageContent(
       state: WallpapersState(
@@ -76,34 +72,6 @@ void main() {
   });
 
   testGoldens('Wallpapers success with some images', (tester) async {
-    final cache = TestCacheManager();
-    final mockFile = MockFile();
-    when(
-      () => cache.getFileStream(
-        any(),
-        headers: any(named: 'headers'),
-        key: any(named: 'key'),
-        withProgress: any(named: 'withProgress'),
-      ),
-    ).thenAnswer((_) async* {
-      yield FileInfo(
-        mockFile,
-        FileSource.Cache,
-        DateTime(2050),
-        'url',
-      );
-    });
-
-    when(
-      () => mockFile.readAsBytes(),
-    ).thenAnswer((_) async {
-      return Uint8List.fromList(transparentImage);
-    });
-
-    GetIt.instance.registerLazySingleton<BaseCacheManager>(
-      () => cache,
-    );
-
     final widget = WallpapersPageContent(
       state: WallpapersState(
         hasReachedMax: false,

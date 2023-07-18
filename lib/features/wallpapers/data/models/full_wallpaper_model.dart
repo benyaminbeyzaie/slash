@@ -25,7 +25,7 @@ class FullWallpaperModel extends Equatable {
   final ThumbsModel thumbs;
   final List<TagModel> tags;
 
-  FullWallpaperModel({
+  const FullWallpaperModel({
     required this.id,
     required this.url,
     required this.shortUrl,
