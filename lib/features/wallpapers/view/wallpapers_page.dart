@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
 import 'package:slash/features/wallpapers/view/widgets/wallpapers_page_content.dart';
 import 'package:slash/injection_container.dart';
-
-import '../controller/wallpapers_bloc/wallpapers_bloc.dart';
 
 @RoutePage()
 class WallpapersPage extends StatefulWidget {

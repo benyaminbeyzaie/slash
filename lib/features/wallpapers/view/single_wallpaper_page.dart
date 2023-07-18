@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:slash/features/wallpapers/controller/single_wallpaper_bloc/single_wallpaper_bloc.dart';
 import 'package:slash/features/wallpapers/data/repository/wallpaper_repository_interface.dart';
-import 'package:slash/features/wallpapers/view/widgets/single_wallpaper_page_content.dart';
+import 'package:slash/features/wallpapers/view/widgets/single_wallpaper_page_content/single_wallpaper_page_content.dart';
 import 'package:slash/injection_container.dart';
 
 @RoutePage()

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
+import 'package:slash/features/wallpapers/data/models/wallpaper_model.dart';
 import 'package:slash/widgets/empty_indicator.dart';
 import 'package:slash/widgets/error_indicator.dart';
-
-import '../../data/models/wallpaper_model.dart';
 import 'bottom_loader.dart';
 import 'grid_view/base_grid_view.dart';
 import 'grid_view/grid_view_skeleton.dart';

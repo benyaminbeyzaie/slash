@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerPlaceHolder extends StatelessWidget {
-  const ShimmerPlaceHolder({super.key});
+  final double? width;
+  final double? height;
+  final double? radius;
+
+  const ShimmerPlaceHolder({
+    super.key,
+    this.width,
+    this.height,
+    this.radius,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +22,12 @@ class ShimmerPlaceHolder extends StatelessWidget {
       highlightColor: Colors.grey.shade100,
       enabled: true,
       child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: baseColor,
+        decoration: BoxDecoration(
+          color: baseColor,
+          borderRadius: BorderRadius.circular(radius ?? 0),
+        ),
+        width: width ?? double.infinity,
+        height: height ?? double.infinity,
       ),
     );
   }
