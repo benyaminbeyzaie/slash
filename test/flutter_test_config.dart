@@ -1,3 +1,6 @@
+// ignore_for_file: prefer-match-file-name
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'dart:typed_data';
 
@@ -13,12 +16,6 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
     final testUrl = (goldenFileComparator as LocalFileComparator).basedir;
 
     goldenFileComparator = LocalFileComparatorWithThreshold(
-      // flutter_test's LocalFileComparator expects the test's URI to be passed
-      // as an argument, but it only uses it to parse the baseDir in order to
-      // obtain the directory where the golden tests will be placed.
-      // As such, we use the default `testUrl`, which is only the `baseDir` and
-      // append a generically named `test.dart` so that the `baseDir` is
-      // properly extracted.
       Uri.parse('$testUrl/test.dart'),
       _kGoldenTestsThreshold,
     );
@@ -28,23 +25,17 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
       'but it is of type `${goldenFileComparator.runtimeType}`',
     );
   }
+
   return testMain();
 }
 
-/// Works just like [LocalFileComparator] but includes a [threshold] that, when
-/// exceeded, marks the test as a failure.
 class LocalFileComparatorWithThreshold extends LocalFileComparator {
-  /// Threshold above which tests will be marked as failing.
-  /// Ranges from 0 to 1, both inclusive.
   final double threshold;
 
   LocalFileComparatorWithThreshold(Uri testFile, this.threshold)
       : assert(threshold >= 0 && threshold <= 1),
         super(testFile);
 
-  /// Copy of [LocalFileComparator]'s [compare] method, except for the fact that
-  /// it checks if the [ComparisonResult.diffPercent] is not greater than
-  /// [threshold] to decide whether this test is successful or a failure.
   @override
   Future<bool> compare(Uint8List imageBytes, Uri golden) async {
     final result = await GoldenFileComparator.compareLists(
