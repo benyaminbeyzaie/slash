@@ -51,10 +51,11 @@ class WallpapersPageContent extends StatelessWidget {
         final wallpaper = wallpapers[index];
         final aspectRatio = wallpaper.dimensionX / wallpaper.dimensionY;
         final imagePath = wallpaper.path;
+        final imageId = wallpaper.id;
 
         return AspectRatio(
           aspectRatio: aspectRatio,
-          child: WallpaperCard(imagePath: imagePath),
+          child: WallpaperCard(imagePath: imagePath,id: imageId,),
         );
       },
     );

@@ -6,18 +6,24 @@ import 'package:slash/injection_container.dart';
 
 class SlashedNetworkImage extends StatelessWidget {
   final String imageUrl;
+  final void Function()? onClick;
+
   const SlashedNetworkImage({
     super.key,
     required this.imageUrl,
+    this.onClick,
   });
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      cacheManager: sl<BaseCacheManager>(),
-      placeholder: (context, url) => const ShimmerPlaceHolder(),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
+    return InkWell(
+      onTap: onClick,
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        cacheManager: sl<BaseCacheManager>(),
+        placeholder: (context, url) => const ShimmerPlaceHolder(),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
+      ),
     );
   }
 }

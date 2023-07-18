@@ -20,6 +20,10 @@ class BaseGridView extends StatelessWidget {
       crossAxisCount: 2,
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 8,
+      ),
       cacheExtent: 9000,
       itemCount: itemCount,
       itemBuilder: itemBuilder,

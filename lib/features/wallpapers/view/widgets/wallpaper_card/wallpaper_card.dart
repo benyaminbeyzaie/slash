@@ -1,27 +1,26 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:slash/widgets/slashed_network_image.dart';
 
 import 'wallpaper_card_wrapper.dart';
 
 class WallpaperCard extends StatelessWidget {
+  final String id;
   final String imagePath;
-  final bool isMocked;
 
   const WallpaperCard({
     super.key,
+    required this.id,
     required this.imagePath,
-    this.isMocked = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return WallpaperCardWrapper(
-      child: isMocked
-          ? const Placeholder()
-          : SlashedNetworkImage(
-              imageUrl: imagePath,
-              
-            ),
+      child: SlashedNetworkImage(
+        onClick: () => context.router.pushNamed("/wallpapers/$id"),
+        imageUrl: imagePath,
+      ),
     );
   }
 }
