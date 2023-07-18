@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:slash/features/wallpapers/controller/single_wallpaper_bloc/single_wallpaper_bloc.dart';
-import 'package:slash/features/wallpapers/data/repository/wallpaper_repository.dart';
+import 'package:slash/features/wallpapers/data/repository/wallpaper_repository_interface.dart';
+import 'package:slash/features/wallpapers/view/widgets/single_wallpaper_page_content.dart';
 import 'package:slash/injection_container.dart';
-import 'package:slash/widgets/slashed_network_image.dart';
 
 @RoutePage()
 class SingleWallpaperPage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _SingleWallpaperPageState extends State<SingleWallpaperPage> {
     return Scaffold(
       body: BlocProvider(
         create: (context) => SingleWallpaperBloc(
-          repository: sl<WallpaperRepository>(),
+          repository: sl<WallpaperRepositoryInterface>(),
         )..add(
             FetchSingleWallpaper(
               id: widget.wallpaperId,
@@ -34,20 +34,10 @@ class _SingleWallpaperPageState extends State<SingleWallpaperPage> {
           ),
         child: BlocBuilder<SingleWallpaperBloc, SingleWallpaperState>(
           builder: (context, state) {
-            return ListView(
-              children: [
-                Hero(
-                  tag: widget.wallpaperId,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                    child:
-                        SlashedNetworkImage(imageUrl: widget.previewImagePath),
-                  ),
-                ),
-              ],
+            return SingleWallpaperPageContent(
+              state: state,
+              id: widget.wallpaperId,
+              previewImagePath: widget.previewImagePath,
             );
           },
         ),
