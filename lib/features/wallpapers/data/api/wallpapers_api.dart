@@ -19,8 +19,6 @@ Future<Either<Failure, List<WallpaperModel>>> getWallpapers(int page) async {
       ),
     );
 
-    print(wallpapers);
-
     return wallpapers;
   }
 

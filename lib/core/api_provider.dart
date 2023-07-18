@@ -6,8 +6,8 @@ import 'failure.dart';
 Dio createDio() {
   final options = BaseOptions(
     baseUrl: 'https://wallhaven.cc/api',
-    connectTimeout: const Duration(seconds: 5),
-    receiveTimeout: const Duration(seconds: 3),
+    connectTimeout: const Duration(seconds: 30),
+    receiveTimeout: const Duration(seconds: 30),
   );
 
   final dio = Dio(options);
