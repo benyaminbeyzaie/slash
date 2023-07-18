@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get_it/get_it.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
 import 'package:slash/features/wallpapers/data/repository/wallpaper_repository.dart';
@@ -21,5 +22,9 @@ void init() {
     () => WallpapersBloc(
       repository: sl<WallpaperRepositoryInterface>(),
     ),
+  );
+
+  sl.registerSingleton<BaseCacheManager>(
+    DefaultCacheManager(),
   );
 }
