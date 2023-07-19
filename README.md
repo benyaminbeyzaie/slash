@@ -31,7 +31,7 @@ Slash is a simple wallpaper app.
 - **Code Quality and Linters**: flutter_lints, dart_code_metrics
   They provide predefined lint rules and static analysis tools to detect and enforce consistent coding patterns, leading to cleaner and more maintainable code.
 
-  - **Dependency Injection**: get_it
+- **Dependency Injection**: get_it
 
 ## Features
 
