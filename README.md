@@ -49,3 +49,4 @@ Slash is a simple wallpaper app.
 - Threashhold on golden tests
 - Native splash screen on every platfrom
 - Improve user experince with Shimmers
+- Throttle the unused events with throttleDroppable on fetching next page of the wallpapers
