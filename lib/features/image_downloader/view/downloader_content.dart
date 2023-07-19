@@ -79,7 +79,7 @@ class DownloaderContent extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.green,
-        borderRadius: BorderRadius.circular(3),
+        borderRadius: BorderRadius.circular(100),
       ),
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,8 +87,8 @@ class DownloaderContent extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: 8,
+              horizontal: 12,
+              vertical: 4,
             ),
             child: Text(
               "Downloaded",
@@ -99,8 +99,8 @@ class DownloaderContent extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: 8,
+              horizontal: 12,
+              vertical: 4,
             ),
             child: Icon(
               Icons.done,
