@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:slash/core/api_provider.dart';
 import 'package:slash/core/failure.dart';
-import 'package:slash/features/wallpapers/data/models/full_wallpaper_model.dart';
-import 'package:slash/features/wallpapers/data/models/wallpaper_model.dart';
+import 'package:slash/models/full_wallpaper_model.dart';
+import 'package:slash/models/wallpaper_model.dart';
 import 'package:slash/injection_container.dart';
 
 Future<Either<Failure, List<WallpaperModel>>> getWallpapers(int page) async {

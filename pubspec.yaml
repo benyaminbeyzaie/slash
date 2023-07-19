@@ -30,6 +30,7 @@ dependencies:
   image_gallery_saver: ^2.0.3
   path: ^1.8.3
   url_launcher: ^6.1.12
+  shared_preferences: ^2.2.0
 
 dependency_overrides:
   meta: ^1.9.1

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:slash/features/wallpapers/data/models/thumbs_model.dart';
+import 'package:slash/models/thumbs_model.dart';
 
 class WallpaperModel extends Equatable {
   final String id;

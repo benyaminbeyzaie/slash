@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:slash/features/liked_wallpapers/controller/bloc/liked_wallpapers_bloc.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
 
 import 'injection_container.dart';
@@ -24,6 +25,9 @@ class App extends StatelessWidget {
   final List<BlocProvider> providers = [
     BlocProvider<WallpapersBloc>(
       create: (BuildContext context) => sl<WallpapersBloc>(),
+    ),
+    BlocProvider<LikedWallpapersBloc>(
+      create: (BuildContext context) => sl<LikedWallpapersBloc>(),
     ),
   ];
 }

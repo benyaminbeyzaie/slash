@@ -1,5 +1,5 @@
 import 'package:mocktail/mocktail.dart';
-import 'package:slash/features/wallpapers/data/models/wallpaper_model.dart';
+import 'package:slash/models/wallpaper_model.dart';
 
 class MockWallpaperModel extends Mock implements WallpaperModel {
   @override

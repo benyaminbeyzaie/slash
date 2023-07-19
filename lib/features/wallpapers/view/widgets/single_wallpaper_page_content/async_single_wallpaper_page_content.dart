@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:slash/features/image_downloader/view/downloader.dart';
 import 'package:slash/features/wallpapers/controller/single_wallpaper_bloc/single_wallpaper_bloc.dart';
-import 'package:slash/features/wallpapers/data/models/full_wallpaper_model.dart';
-import 'package:slash/features/wallpapers/data/models/uploader_model.dart';
+import 'package:slash/models/full_wallpaper_model.dart';
+import 'package:slash/models/uploader_model.dart';
 import 'package:slash/features/wallpapers/view/widgets/color_tag.dart';
 import 'package:slash/features/wallpapers/view/widgets/single_wallpaper_page_content/single_wallpaper_page_content_skeleton.dart';
 import 'package:slash/utils/prettify_file_size.dart';

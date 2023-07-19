@@ -1,6 +1,6 @@
 import 'package:mocktail/mocktail.dart';
-import 'package:slash/features/wallpapers/data/models/full_wallpaper_model.dart';
-import 'package:slash/features/wallpapers/data/models/uploader_model.dart';
+import 'package:slash/models/full_wallpaper_model.dart';
+import 'package:slash/models/uploader_model.dart';
 
 class MockFullWallpaperModel extends Mock implements FullWallpaperModel {
   @override

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:slash/core/failure.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
-import 'package:slash/features/wallpapers/data/models/wallpaper_model.dart';
+import 'package:slash/models/wallpaper_model.dart';
 import 'package:test/test.dart';
 
 import '../../data/models/mock_wallpaper_model.dart';

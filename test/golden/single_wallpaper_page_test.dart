@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:slash/features/wallpapers/controller/single_wallpaper_bloc/single_wallpaper_bloc.dart';
-import 'package:slash/features/wallpapers/data/models/avatar_model.dart';
-import 'package:slash/features/wallpapers/data/models/uploader_model.dart';
+import 'package:slash/models/avatar_model.dart';
+import 'package:slash/models/uploader_model.dart';
 import 'package:slash/features/wallpapers/view/widgets/single_wallpaper_page_content/single_wallpaper_page_content.dart';
 
 import 'utils/init_mocked_network_image.dart';

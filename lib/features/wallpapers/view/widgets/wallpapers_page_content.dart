@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
-import 'package:slash/features/wallpapers/data/models/wallpaper_model.dart';
+import 'package:slash/models/wallpaper_model.dart';
 import 'package:slash/widgets/empty_indicator.dart';
 import 'package:slash/widgets/error_indicator.dart';
 import 'bottom_loader.dart';

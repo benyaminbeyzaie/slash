@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:slash/core/failure.dart';
 import 'package:slash/features/wallpapers/data/api/wallpapers_api.dart';
-import 'package:slash/features/wallpapers/data/models/full_wallpaper_model.dart';
-import 'package:slash/features/wallpapers/data/models/wallpaper_model.dart';
+import 'package:slash/models/full_wallpaper_model.dart';
+import 'package:slash/models/wallpaper_model.dart';
 import 'package:slash/features/wallpapers/data/repository/wallpaper_repository_interface.dart';
 
 class WallpaperRepository implements WallpaperRepositoryInterface {
