@@ -4,9 +4,9 @@
 
 Slash is a simple wallpaper app.
 
-|           Wallpapers           |      Single Wallpaper       |
-| :----------------------------: | :-------------------------: |
-| ![startup](/Screenshots/1.png) | ![menu](/Screenshots/2.png) |
+|            Wallpapers             |             Single Wallpaper             |
+| :-------------------------------: | :--------------------------------------: |
+| ![Wallpapers](/screenshots/1.png) | ![Single Wallpaper ](/screenshots/2.png) |
 
 ## Decisions, Technologies and Reasons
 
@@ -31,9 +31,12 @@ Slash is a simple wallpaper app.
 - **Code Quality and Linters**: flutter_lints, dart_code_metrics
   They provide predefined lint rules and static analysis tools to detect and enforce consistent coding patterns, leading to cleaner and more maintainable code.
 
+- **Dependency Injection**: get_it
+
 ## Features
 
 - Get list of wallpapers form api with cached iamges
+- Pagination and infinite list
 - See the each wallpaper in single page with more details
 - Supporting Web (Specially done good work on url handling and navigation)
 - Supporting iOS and Android
@@ -41,6 +44,12 @@ Slash is a simple wallpaper app.
 - Hero animation between page changes
 - Well tested page controllers and Golden tested UI
 - Fully decomposed UI from Logic
+- CI running pipeline for tests
+- Dependency injection and abstraction on repositories
+- Threshold on golden tests
+- Native splash screen on every platform
+- Improve user experience with Shimmers
+- Throttle the unused events with throttleDroppable on fetching next page of the wallpapers
 
 ## Development
 
