@@ -3,6 +3,7 @@ import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_
 import 'package:slash/features/wallpapers/view/widgets/wallpapers_page_content.dart';
 
 import 'utils/init_mocked_network_image.dart';
+import 'utils/material_wrapper.dart';
 import 'utils/mock_wallpaper_model.dart';
 
 void main() {
@@ -15,7 +16,12 @@ void main() {
         status: WallpapersStateStatus.failure,
       ),
     );
-    await tester.pumpWidgetBuilder(widget);
+    await tester.pumpWidgetBuilder(
+      widget,
+      wrapper: (widget) => MaterialWrapper(
+        child: widget,
+      ),
+    );
     await multiScreenGolden(
       tester,
       'wallpapers_page_content_failure',
@@ -36,7 +42,12 @@ void main() {
         wallpapers: [],
       ),
     );
-    await tester.pumpWidgetBuilder(widget);
+    await tester.pumpWidgetBuilder(
+      widget,
+      wrapper: (widget) => MaterialWrapper(
+        child: widget,
+      ),
+    );
     await multiScreenGolden(
       tester,
       'wallpapers_page_content_success_initial',
@@ -60,7 +71,12 @@ void main() {
         wallpapers: [],
       ),
     );
-    await tester.pumpWidgetBuilder(widget);
+    await tester.pumpWidgetBuilder(
+      widget,
+      wrapper: (widget) => MaterialWrapper(
+        child: widget,
+      ),
+    );
     await multiScreenGolden(
       tester,
       'wallpapers_page_content_success_empty',
@@ -100,7 +116,12 @@ void main() {
         ],
       ),
     );
-    await tester.pumpWidgetBuilder(widget);
+    await tester.pumpWidgetBuilder(
+      widget,
+      wrapper: (widget) => MaterialWrapper(
+        child: widget,
+      ),
+    );
     await multiScreenGolden(
       tester,
       'wallpapers_page_content_success_with_image',

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:slash/features/wallpapers/controller/single_wallpaper_bloc/single_wallpaper_bloc.dart';
 import 'package:slash/features/wallpapers/data/models/avatar_model.dart';
@@ -5,19 +6,27 @@ import 'package:slash/features/wallpapers/data/models/uploader_model.dart';
 import 'package:slash/features/wallpapers/view/widgets/single_wallpaper_page_content/single_wallpaper_page_content.dart';
 
 import 'utils/init_mocked_network_image.dart';
+import 'utils/material_wrapper.dart';
 import 'utils/mock_full_wallpaper_model.dart';
 
 void main() {
   initMockedNetworkImage();
   testGoldens('SingleWallpaper failure', (tester) async {
-    const widget = SingleWallpaperPageContent(
-      state: SingleWallpaperState(
-        status: SingleWallpaperStateStatus.failure,
+    const widget = Scaffold(
+      body: SingleWallpaperPageContent(
+        state: SingleWallpaperState(
+          status: SingleWallpaperStateStatus.failure,
+        ),
+        previewImagePath: "https://some.path",
+        id: "id",
       ),
-      previewImagePath: "https://some.path",
-      id: "id",
     );
-    await tester.pumpWidgetBuilder(widget);
+    await tester.pumpWidgetBuilder(
+      widget,
+      wrapper: (widget) => MaterialWrapper(
+        child: widget,
+      ),
+    );
     await multiScreenGolden(
       tester,
       'single_wallpaper_failure',
@@ -37,7 +46,12 @@ void main() {
       id: "id",
     );
 
-    await tester.pumpWidgetBuilder(widget);
+    await tester.pumpWidgetBuilder(
+      widget,
+      wrapper: (widget) => MaterialWrapper(
+        child: widget,
+      ),
+    );
     await multiScreenGolden(
       tester,
       'single_wallpaper_success_initial',
@@ -75,7 +89,12 @@ void main() {
       id: "id",
     );
 
-    await tester.pumpWidgetBuilder(widget);
+    await tester.pumpWidgetBuilder(
+      widget,
+      wrapper: (widget) => MaterialWrapper(
+        child: widget,
+      ),
+    );
     await multiScreenGolden(
       tester,
       'single_wallpaper_success',
