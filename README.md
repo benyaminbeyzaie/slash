@@ -41,3 +41,17 @@ Slash is a simple wallpaper app.
 - Hero animation between page changes
 - Well tested page controllers and Golden tested UI
 - Fully decomposed UI from Logic
+
+## Development
+
+Building routes:
+
+```bash
+flutter packages pub run build_runner build
+```
+
+Running tests:
+
+```bash
+flutter test
+```
