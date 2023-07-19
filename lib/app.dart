@@ -13,6 +13,9 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: providers,
       child: MaterialApp.router(
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
         routerConfig: appRouter.config(),
       ),
     );
