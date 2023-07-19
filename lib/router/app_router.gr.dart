@@ -25,7 +25,10 @@ abstract class $AppRouter extends _i3.RootStackRouter {
       );
     },
     SingleWallpaperRoute.name: (routeData) {
-      final args = routeData.argsAs<SingleWallpaperRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<SingleWallpaperRouteArgs>(
+          orElse: () => SingleWallpaperRouteArgs(
+              wallpaperId: pathParams.getString('wallpaperId')));
       return _i3.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i2.SingleWallpaperPage(
@@ -56,7 +59,7 @@ class WallpapersRoute extends _i3.PageRouteInfo<void> {
 class SingleWallpaperRoute extends _i3.PageRouteInfo<SingleWallpaperRouteArgs> {
   SingleWallpaperRoute({
     required String wallpaperId,
-    required String previewImagePath,
+    String? previewImagePath,
     List<_i3.PageRouteInfo>? children,
   }) : super(
           SingleWallpaperRoute.name,
@@ -77,12 +80,12 @@ class SingleWallpaperRoute extends _i3.PageRouteInfo<SingleWallpaperRouteArgs> {
 class SingleWallpaperRouteArgs {
   const SingleWallpaperRouteArgs({
     required this.wallpaperId,
-    required this.previewImagePath,
+    this.previewImagePath,
   });
 
   final String wallpaperId;
 
-  final String previewImagePath;
+  final String? previewImagePath;
 
   @override
   String toString() {

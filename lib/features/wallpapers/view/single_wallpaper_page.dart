@@ -10,11 +10,11 @@ import 'package:slash/injection_container.dart';
 class SingleWallpaperPage extends StatefulWidget {
   const SingleWallpaperPage({
     @PathParam('wallpaperId') required this.wallpaperId,
-    required this.previewImagePath,
+    this.previewImagePath,
   });
 
   final String wallpaperId;
-  final String previewImagePath;
+  final String? previewImagePath;
 
   @override
   State<SingleWallpaperPage> createState() => _SingleWallpaperPageState();
