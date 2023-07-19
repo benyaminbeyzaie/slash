@@ -27,6 +27,7 @@ class WallpaperCard extends StatelessWidget {
       child: Hero(
         tag: id,
         child: SlashedNetworkImage(
+          fit: BoxFit.cover,
           imageUrl: imagePath,
         ),
       ),

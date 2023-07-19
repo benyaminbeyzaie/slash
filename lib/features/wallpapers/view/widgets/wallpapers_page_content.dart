@@ -49,7 +49,7 @@ class WallpapersPageContent extends StatelessWidget {
         }
         final wallpaper = wallpapers[index];
         final aspectRatio = wallpaper.dimensionX / wallpaper.dimensionY;
-        final imagePath = wallpaper.path;
+        final imagePath = wallpaper.thumbs.original;
         final imageId = wallpaper.id;
 
         return AspectRatio(

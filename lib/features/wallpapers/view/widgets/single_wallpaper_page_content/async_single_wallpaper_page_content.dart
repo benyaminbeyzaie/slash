@@ -50,7 +50,10 @@ class AsyncSingleWallpaperPageContent extends StatelessWidget {
               ),
               child: Container(
                 color: Colors.black,
-                child: SlashedNetworkImage(imageUrl: fullModel.path),
+                child: SlashedNetworkImage(
+                  imageUrl: fullModel.thumbs.original,
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             ),
           ),

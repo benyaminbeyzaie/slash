@@ -35,7 +35,10 @@ class SyncSingleWallpaperPageContent extends StatelessWidget {
               ),
               child: Container(
                 color: Colors.black,
-                child: SlashedNetworkImage(imageUrl: previewImagePath),
+                child: SlashedNetworkImage(
+                  imageUrl: previewImagePath,
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             ),
           ),
