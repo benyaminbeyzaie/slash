@@ -9,28 +9,34 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i5;
-import 'package:slash/features/home/views/home_page.dart' as _i4;
+import 'package:slash/features/home/views/home_page.dart' as _i1;
 import 'package:slash/features/liked_wallpapers/view/liked_wallpapers_page.dart'
-    as _i1;
+    as _i2;
 import 'package:slash/features/wallpapers/view/single_wallpaper_page.dart'
-    as _i3;
-import 'package:slash/features/wallpapers/view/wallpapers_page.dart' as _i2;
+    as _i4;
+import 'package:slash/features/wallpapers/view/wallpapers_page.dart' as _i3;
 
 abstract class $AppRouter extends _i5.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
   final Map<String, _i5.PageFactory> pagesMap = {
+    HomeRoute.name: (routeData) {
+      return _i5.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i1.HomePage(),
+      );
+    },
     LikedWallpapersRoute.name: (routeData) {
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.LikedWallpapersPage(),
+        child: const _i2.LikedWallpapersPage(),
       );
     },
     WallpapersRoute.name: (routeData) {
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.WallpapersPage(),
+        child: const _i3.WallpapersPage(),
       );
     },
     SingleWallpaperRoute.name: (routeData) {
@@ -40,23 +46,31 @@ abstract class $AppRouter extends _i5.RootStackRouter {
               wallpaperId: pathParams.getString('wallpaperId')));
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i3.SingleWallpaperPage(
+        child: _i4.SingleWallpaperPage(
           wallpaperId: args.wallpaperId,
           previewImagePath: args.previewImagePath,
         ),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return _i5.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i4.HomePage(),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.LikedWallpapersPage]
+/// [_i1.HomePage]
+class HomeRoute extends _i5.PageRouteInfo<void> {
+  const HomeRoute({List<_i5.PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.LikedWallpapersPage]
 class LikedWallpapersRoute extends _i5.PageRouteInfo<void> {
   const LikedWallpapersRoute({List<_i5.PageRouteInfo>? children})
       : super(
@@ -70,7 +84,7 @@ class LikedWallpapersRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.WallpapersPage]
+/// [_i3.WallpapersPage]
 class WallpapersRoute extends _i5.PageRouteInfo<void> {
   const WallpapersRoute({List<_i5.PageRouteInfo>? children})
       : super(
@@ -84,7 +98,7 @@ class WallpapersRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.SingleWallpaperPage]
+/// [_i4.SingleWallpaperPage]
 class SingleWallpaperRoute extends _i5.PageRouteInfo<SingleWallpaperRouteArgs> {
   SingleWallpaperRoute({
     required String wallpaperId,
@@ -120,18 +134,4 @@ class SingleWallpaperRouteArgs {
   String toString() {
     return 'SingleWallpaperRouteArgs{wallpaperId: $wallpaperId, previewImagePath: $previewImagePath}';
   }
-}
-
-/// generated route for
-/// [_i4.HomePage]
-class HomeRoute extends _i5.PageRouteInfo<void> {
-  const HomeRoute({List<_i5.PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
 }

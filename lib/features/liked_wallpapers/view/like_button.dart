@@ -61,9 +61,9 @@ class LikeButton extends StatelessWidget {
     }
 
     if (likedWallpapers.contains(wallpaper)) {
-      return Icons.favorite_border;
+      return Icons.favorite;
     }
 
-    return Icons.favorite;
+    return Icons.favorite_border;
   }
 }

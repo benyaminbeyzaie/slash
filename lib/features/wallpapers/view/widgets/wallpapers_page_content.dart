@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
-import 'package:slash/models/wallpaper_model.dart';
+import 'package:slash/widgets/wallpapers_list_widget.dart';
 import 'package:slash/widgets/empty_indicator.dart';
 import 'package:slash/widgets/error_indicator.dart';
-import 'bottom_loader.dart';
-import 'grid_view/base_grid_view.dart';
-import 'grid_view/grid_view_skeleton.dart';
-import 'wallpaper_card/wallpaper_card.dart';
+import '../../../../widgets/grid_view/grid_view_skeleton.dart';
 
 class WallpapersPageContent extends StatelessWidget {
   final WallpapersState state;
@@ -33,33 +30,9 @@ class WallpapersPageContent extends StatelessWidget {
       return const Center(child: ErrorIndicator());
     }
 
-    return buildWallpapers(state.hasReachedMax, wallpapers);
-  }
-
-  BaseGridView buildWallpapers(
-    bool hasReachedMax,
-    List<WallpaperModel> wallpapers,
-  ) {
-    return BaseGridView(
-      controller: scrollController,
-      itemCount: hasReachedMax ? wallpapers.length : wallpapers.length + 1,
-      itemBuilder: (context, index) {
-        if (index >= wallpapers.length) {
-          return const BottomLoader();
-        }
-        final wallpaper = wallpapers[index];
-        final aspectRatio = wallpaper.dimensionX / wallpaper.dimensionY;
-        final imagePath = wallpaper.thumbs.original;
-        final imageId = wallpaper.id;
-
-        return AspectRatio(
-          aspectRatio: aspectRatio,
-          child: WallpaperCard(
-            imagePath: imagePath,
-            id: imageId,
-          ),
-        );
-      },
+    return WallpapersListWidget(
+      hasReachedMax: state.hasReachedMax,
+      wallpapers: wallpapers,
     );
   }
 }

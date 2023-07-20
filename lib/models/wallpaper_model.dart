@@ -1,27 +1,50 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:slash/models/thumbs_model.dart';
 
+part 'wallpaper_model.g.dart';
+
+@HiveType(typeId: 0)
 class WallpaperModel extends Equatable {
+  @HiveField(0)
   final String id;
+  @HiveField(1)
   final String url;
+  @HiveField(2)
   final String shortUrl;
+  @HiveField(3)
   final int views;
+  @HiveField(4)
   final int favorites;
+  @HiveField(5)
   final String source;
+  @HiveField(6)
   final String purity;
+  @HiveField(7)
   final String category;
+  @HiveField(8)
   final int dimensionX;
+  @HiveField(9)
   final int dimensionY;
+  @HiveField(10)
+  @HiveField(11)
   final String resolution;
+  @HiveField(12)
   final String ratio;
+  @HiveField(13)
   final int fileSize;
+  @HiveField(14)
   final String fileType;
+  @HiveField(15)
   final DateTime createdAt;
+  @HiveField(16)
   final List<String> colors;
+  @HiveField(17)
   final String path;
+  @HiveField(18)
   final ThumbsModel thumbs;
 
-  WallpaperModel({
+  const WallpaperModel({
     required this.id,
     required this.url,
     required this.shortUrl,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'shimmer_placeholder.dart';
+import '../features/wallpapers/view/widgets/shimmer_placeholder.dart';
 import 'wallpaper_card/wallpaper_card_wrapper.dart';
 
 class BottomLoader extends StatelessWidget {
