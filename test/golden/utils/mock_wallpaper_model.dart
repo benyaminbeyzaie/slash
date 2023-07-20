@@ -1,4 +1,5 @@
 import 'package:mocktail/mocktail.dart';
+import 'package:slash/models/thumbs_model.dart';
 import 'package:slash/models/wallpaper_model.dart';
 
 class MockWallpaperModel extends Mock implements WallpaperModel {
@@ -10,12 +11,15 @@ class MockWallpaperModel extends Mock implements WallpaperModel {
   final int dimensionY;
   @override
   final String path;
+  @override
+  final ThumbsModel thumbs;
 
   MockWallpaperModel({
     required this.id,
     required this.path,
     required this.dimensionX,
     required this.dimensionY,
+    required this.thumbs,
   });
 
   @override
