@@ -6,12 +6,12 @@ import 'package:slash/features/liked_wallpapers/controller/bloc/liked_wallpapers
 import 'package:slash/features/liked_wallpapers/data/liked_wallpapers_repository.dart';
 import 'package:slash/features/liked_wallpapers/data/liked_wallpapers_repository_interface.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
-import 'package:slash/features/wallpapers/data/repository/wallpaper_repository.dart';
-import 'package:slash/features/wallpapers/data/repository/wallpaper_repository_interface.dart';
 import 'package:slash/models/thumbs_model.dart';
 import 'package:slash/models/wallpaper_model.dart';
 
 import 'core/api_provider.dart';
+import 'features/shared/repositories/wallpaper_repository.dart';
+import 'features/shared/repositories/wallpaper_repository_interface.dart';
 import 'router/app_router.dart';
 
 final sl = GetIt.instance;
@@ -42,7 +42,8 @@ Future<void> init() async {
 
   sl.registerLazySingleton<LikedWallpapersBloc>(
     () => LikedWallpapersBloc(
-      repository: sl<LikedWallpapersRepositoryInterface>(),
+      likedRepository: sl<LikedWallpapersRepositoryInterface>(),
+      wallpapersRepository: sl<WallpaperRepositoryInterface>(),
     )..add(ReloadWallpapers()),
   );
 

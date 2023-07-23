@@ -1,6 +1,7 @@
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:slash/features/wallpapers/controller/wallpapers_bloc/wallpapers_bloc.dart';
 import 'package:slash/features/wallpapers/view/widgets/wallpapers_page_content.dart';
+import 'package:slash/models/thumbs_model.dart';
 
 import 'utils/init_mocked_network_image.dart';
 import 'utils/material_wrapper.dart';
@@ -100,18 +101,33 @@ void main() {
             dimensionX: 1,
             dimensionY: 1,
             path: "https://some.path",
+            thumbs: ThumbsModel(
+              large: "https://some.path",
+              original: "https://some.path",
+              small: "https://some.path",
+            ),
           ),
           MockWallpaperModel(
             id: "-1",
             dimensionX: 1,
             dimensionY: 1,
             path: "https://some.path",
+            thumbs: ThumbsModel(
+              large: "https://some.path",
+              original: "https://some.path",
+              small: "https://some.path",
+            ),
           ),
           MockWallpaperModel(
             id: "-1",
             dimensionX: 1,
             dimensionY: 1,
             path: "https://some.path",
+            thumbs: ThumbsModel(
+              large: "https://some.path",
+              original: "https://some.path",
+              small: "https://some.path",
+            ),
           ),
         ],
       ),

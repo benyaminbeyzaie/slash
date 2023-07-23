@@ -26,7 +26,7 @@ class WallpaperCard extends StatelessWidget {
             child: WallpaperCardWrapper(
               onTap: () => context.router.push(
                 SingleWallpaperRoute(
-                  previewImagePath: wallpaper.thumbs.original,
+                  wallpaperModel: wallpaper,
                   wallpaperId: wallpaper.id,
                 ),
               ),

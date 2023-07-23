@@ -15,6 +15,7 @@ import 'package:slash/features/liked_wallpapers/view/liked_wallpapers_page.dart'
 import 'package:slash/features/wallpapers/view/single_wallpaper_page.dart'
     as _i4;
 import 'package:slash/features/wallpapers/view/wallpapers_page.dart' as _i3;
+import 'package:slash/models/wallpaper_model.dart' as _i6;
 
 abstract class $AppRouter extends _i5.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -48,7 +49,7 @@ abstract class $AppRouter extends _i5.RootStackRouter {
         routeData: routeData,
         child: _i4.SingleWallpaperPage(
           wallpaperId: args.wallpaperId,
-          previewImagePath: args.previewImagePath,
+          wallpaperModel: args.wallpaperModel,
         ),
       );
     },
@@ -102,13 +103,13 @@ class WallpapersRoute extends _i5.PageRouteInfo<void> {
 class SingleWallpaperRoute extends _i5.PageRouteInfo<SingleWallpaperRouteArgs> {
   SingleWallpaperRoute({
     required String wallpaperId,
-    String? previewImagePath,
+    _i6.WallpaperModel? wallpaperModel,
     List<_i5.PageRouteInfo>? children,
   }) : super(
           SingleWallpaperRoute.name,
           args: SingleWallpaperRouteArgs(
             wallpaperId: wallpaperId,
-            previewImagePath: previewImagePath,
+            wallpaperModel: wallpaperModel,
           ),
           rawPathParams: {'wallpaperId': wallpaperId},
           initialChildren: children,
@@ -123,15 +124,15 @@ class SingleWallpaperRoute extends _i5.PageRouteInfo<SingleWallpaperRouteArgs> {
 class SingleWallpaperRouteArgs {
   const SingleWallpaperRouteArgs({
     required this.wallpaperId,
-    this.previewImagePath,
+    this.wallpaperModel,
   });
 
   final String wallpaperId;
 
-  final String? previewImagePath;
+  final _i6.WallpaperModel? wallpaperModel;
 
   @override
   String toString() {
-    return 'SingleWallpaperRouteArgs{wallpaperId: $wallpaperId, previewImagePath: $previewImagePath}';
+    return 'SingleWallpaperRouteArgs{wallpaperId: $wallpaperId, wallpaperModel: $wallpaperModel}';
   }
 }

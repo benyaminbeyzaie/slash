@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:slash/features/shared/repositories/wallpaper_repository_interface.dart';
 import 'package:slash/models/full_wallpaper_model.dart';
-import 'package:slash/features/wallpapers/data/repository/wallpaper_repository_interface.dart';
 
 part 'single_wallpaper_event.dart';
 part 'single_wallpaper_state.dart';

@@ -4,6 +4,12 @@ abstract class LikedWallpapersEvent {}
 
 class ReloadWallpapers extends LikedWallpapersEvent {}
 
+class LikeWallpaperWithId extends LikedWallpapersEvent {
+  final String id;
+
+  LikeWallpaperWithId({required this.id});
+}
+
 class LikeWallpaper extends LikedWallpapersEvent {
   final WallpaperModel wallpaperModel;
 

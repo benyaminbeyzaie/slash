@@ -4,6 +4,7 @@ import 'package:slash/models/full_wallpaper_model.dart';
 import 'package:slash/models/wallpaper_model.dart';
 
 abstract class WallpaperRepositoryInterface {
+  List<WallpaperModel>? cache;
   Future<Either<Failure, List<WallpaperModel>>> fetchWallpapers(int page);
   Future<Either<Failure, FullWallpaperModel>> fetchSingleWallpaper(String id);
 }

@@ -33,6 +33,7 @@ class WallpapersPageContent extends StatelessWidget {
     return WallpapersListWidget(
       hasReachedMax: state.hasReachedMax,
       wallpapers: wallpapers,
+      controller: scrollController,
     );
   }
 }

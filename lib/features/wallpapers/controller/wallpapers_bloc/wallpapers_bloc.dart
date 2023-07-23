@@ -1,8 +1,8 @@
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:slash/features/shared/repositories/wallpaper_repository_interface.dart';
 import 'package:slash/models/wallpaper_model.dart';
-import 'package:slash/features/wallpapers/data/repository/wallpaper_repository_interface.dart';
 import 'package:stream_transform/stream_transform.dart';
 
 part 'wallpapers_event.dart';

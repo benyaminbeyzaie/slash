@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:slash/features/image_downloader/view/downloader.dart';
+import 'package:slash/features/liked_wallpapers/view/like_button.dart';
 import 'package:slash/features/wallpapers/controller/single_wallpaper_bloc/single_wallpaper_bloc.dart';
 import 'package:slash/models/uploader_model.dart';
 import 'package:slash/features/wallpapers/view/widgets/color_tag.dart';
 import 'package:slash/features/wallpapers/view/widgets/single_wallpaper_page_content/single_wallpaper_page_content_skeleton.dart';
+import 'package:slash/models/wallpaper_model.dart';
 import 'package:slash/utils/prettify_file_size.dart';
 import 'package:slash/widgets/error_indicator.dart';
 import 'package:slash/widgets/slashed_network_image.dart';
 
 class SyncSingleWallpaperPageContent extends StatelessWidget {
   final SingleWallpaperState state;
-  final String id;
-  final String previewImagePath;
+  final WallpaperModel wallpaperModel;
 
   const SyncSingleWallpaperPageContent({
     super.key,
     required this.state,
-    required this.id,
-    required this.previewImagePath,
+    required this.wallpaperModel,
   });
 
   @override
@@ -25,7 +25,7 @@ class SyncSingleWallpaperPageContent extends StatelessWidget {
     return ListView(
       children: [
         Hero(
-          tag: id,
+          tag: wallpaperModel.id,
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxHeight: 500),
             child: ClipRRect(
@@ -36,7 +36,7 @@ class SyncSingleWallpaperPageContent extends StatelessWidget {
               child: Container(
                 color: Colors.black,
                 child: SlashedNetworkImage(
-                  imageUrl: previewImagePath,
+                  imageUrl: wallpaperModel.thumbs.original,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -70,6 +70,7 @@ class SyncSingleWallpaperPageContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        LikeButton(wallpaper: wallpaperModel),
         buildColorTags(fullModel.colors),
         buildUploaderDetails(context, fullModel.uploader),
         buildDownloader(fullModel.path, fullModel.fileSize),

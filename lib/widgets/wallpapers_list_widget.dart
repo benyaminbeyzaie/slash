@@ -38,6 +38,7 @@ class WallpapersListWidget extends StatelessWidget {
         return AspectRatio(
           aspectRatio: aspectRatio,
           child: WallpaperCard(
+            key: UniqueKey(),
             wallpaper: wallpaper,
           ),
         );
