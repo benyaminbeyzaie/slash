@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1056493096810",
+    "project_id": "slash-30b08",
+    "storage_bucket": "slash-30b08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056493096810:android:c258117e6dd9fb9138df13",
+        "android_client_info": {
+          "package_name": "tech.benyamin.slash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056493096810-qsgqu1b2hh44teqerctiouk7o0ng86ee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_N3B7qmOYxvOGigzTbikDbUJl90g3nOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056493096810-qsgqu1b2hh44teqerctiouk7o0ng86ee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

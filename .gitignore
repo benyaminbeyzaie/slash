@@ -44,5 +44,6 @@ app.*.map.json
 /android/app/release
 
 .vscode
+.firebase
 
 test/golden/failures
